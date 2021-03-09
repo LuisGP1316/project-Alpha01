@@ -1,7 +1,29 @@
 ///Movimiento
+var keyleft, keyRight, keyUp, keyDown
+keyLeft     = keyboard_check(vk_left)
+keyRight    = keyboard_check(vk_right)
+keyUp       = keyboard_check(vk_up)
+keyDown     = keyboard_check(vk_down)
 
-//deteccion de teclas
-if keyboard_check(ord('A')) { x = x - 1 }
-if keyboard_check(ord('D')) { x = x + 1 }
-if keyboard_check(ord('S')) { y = y + 1 }
-if keyboard_check(ord('W')) { y = y - 1 }
+moveX = keyRight - keyLeft
+moveY = keyDown - keyUp
+
+//Dezplazamineto
+if moveX != 0 && moveY != 0
+{
+    x = x + (0.707 * moveX)
+    y = y + (0.707 * moveY)
+}
+
+else
+{
+    if moveX != 0 
+    {
+        x = x + moveX
+    }
+
+    if moveY != 0
+    {
+        y = y + moveY
+    }
+}
